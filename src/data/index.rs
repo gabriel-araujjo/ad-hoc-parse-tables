@@ -49,7 +49,9 @@ impl<'a> Display for Index<'a> {
             | "Adquirido pelo IHGRN"
             | "Da redação da Revista"
             | "Da redação da revista"
-            | "Da redação do jornal" => return Ok(()),
+            | "Da redação do jornal"
+            | "Governador do Estado"
+            | "Governo do Estado" => return Ok(()),
             "A. J. Raposo da Camara" => vec!["Camara", "A. J. Raposo da"],
             "A. Tavares de Lyra"
             | "Sócio A. Tavares de Lyra" 
@@ -63,7 +65,8 @@ impl<'a> Display for Index<'a> {
             | "Consorcio Tavares Lyra" => vec!["Lyra", "Augusto Tavares de"],
             "Abel Furtado" => vec!["Furtado", "Abel"],
             "Adquirido pelo Instituto através do sócio Henrique Castriciano, no valor de trinta e cinco mil réis"
-            | "Sócio Henrique Castriciano" => vec!["Castriciano", "Henrique"],
+            | "Sócio Henrique Castriciano"
+            | "Henrique Castriciano" => vec!["Castriciano", "Henrique"],
             "Affonso Costa" => vec!["Costa", "Affonso"],
             "Alberto Maranhão"
             | "Sócio Alberto Maranhão"
@@ -101,7 +104,8 @@ impl<'a> Display for Index<'a> {
             "Barão de Studart" => vec!["Studart", "Barão de"],
             "Barão Feachtuelebeu" => vec!["Feachtuelebeu", "Barão"],
             "Belisario Pernambuco" => vec!["Pernambuco", "Belisario"],
-            "Bibliotheca da Faculdade de Direito do Recife" => vec!["Biblioteca da Faculdade de Direito do Recife"],
+            "Bibliotheca da Faculdade de Direito do Recife"
+            | "Faculdade de Direito de Recife" => vec!["Biblioteca da Faculdade de Direito do Recife"],
             "Bibliotheca da Faculdade de Medicina da Bahia" => vec!["Biblioteca da Faculdade de Medicina da Bahia"],
             "Bibliotheca do Centro Academico de Agosto" => vec!["Biblioteca do Centro Acadêmico de Agosto"],
             "Bibliotheca do Centro Acadêmico de Agosto" => vec!["Biblioteca do Centro Acadêmico de Agosto"],
@@ -158,8 +162,10 @@ impl<'a> Display for Index<'a> {
             | "Congresso Litterario “Tibiriçá de Lemos”"
             | "Congresso Tibiriçá de Lemos" => vec!["Congresso Litterario Tibiriçá de Lemos"],
             "Conselheiro Ruy Barbosa" => vec!["Barbosa", "Ruy"],
-            "Consocio Senador Ferreira Chaves" => vec!["Ferreira Chaves"],
-            "Consócio Francisco Câmara" => vec!["Câmara", "Francisco"],
+            "Consocio Senador Ferreira Chaves"
+            | "Ferreira Chaves" => vec!["Ferreira Chaves"],
+            "Consócio Francisco Câmara"
+            | "Francisco Câmara" => vec!["Câmara", "Francisco"],
             "Coronel Gregorio Thaumaturgo de Azevedo" => vec!["Azevedo", "Gregorio Thaumaturgo de"],
             "Coronel J. J. Valentim de Almeida" => vec!["Almeida", "J. J. Valentim de"],
             "Cultura Acadêmica" => vec!["Cultura Acadêmica"],
@@ -186,14 +192,17 @@ impl<'a> Display for Index<'a> {
             "Diretoria Geral de Estatística do Rio de Janeiro" => vec!["Diretoria Geral de Estatística", "do Rio de Janeiro"],
             "Diretoria da Indústria e Comércio" => vec!["Diretoria da Indústria e Comércio"],
             "Diretoria da Previdente Natalense" => vec!["Diretoria da Previdente Natalense"],
-            "Diretoria do Grêmio Rio-grandense do Norte" => vec!["Grêmio Rio-Grandense do Norte"],
+            "Diretoria do Grêmio Rio-grandense do Norte"
+            | "Grêmio Rio Grandense do Norte" => vec!["Grêmio Rio-Grandense do Norte"],
             "Diretoria Geral dos Correios" => vec!["Correios"],
             "Diário oficial" => vec!["Diário Oficial"],
-            "Do cidadão Fortunato Aranha" => vec!["Aranha", "Fortunato"],
+            "Do cidadão Fortunato Aranha"
+            | "Fortunato Aranha" => vec!["Aranha", "Fortunato"],
             "Documento escolar" => vec!["Documento", "Escolar"],
             "Documento religioso" => vec!["Documento", "Religioso"],
             "Domingos Barros" => vec!["Barros", "Domingos"],
-            "Dr. Felisbello Freire" => vec!["Freire", "Felisbello"],
+            "Dr. Felisbello Freire"
+            | "Felisbelo Freire" => vec!["Freire", "Felisbello"],
             "Dr. Candido Duarte" => vec!["Duarte", "Candido"],
             "Dr. Costa Filho"
             | "Dr. Costa Filho," => vec!["Costa Filho"],
@@ -245,6 +254,35 @@ impl<'a> Display for Index<'a> {
                 Display::fmt(&Index::from("Ramalho Ortigão"), f)?;
                 return Ok(())
             }
+            "F . Lino D’Assampção" => vec!["D’Assampção", "F. Lino"],
+            "Federação Espirita Brazileira" => vec!["Federação Espirita Brazileira"],
+            "Fortunato Aranho, em nome da Federação espirita Brazileira" => {
+                Display::fmt(&Index::from("Fortunato Aranho"), f)?;
+                Display::fmt(&Index::from("Federação Espirita Brazileira"), f)?;
+                return Ok(())
+            }
+            "Francisco Palma" => vec!["Palma", "Francisco"],
+            "Gabinete Portuguez de Leitura (Pernambuco)" => vec!["Pernambuco", "Gabinete Portuguez de Leitura de"],
+            "Governador de Pernambuco, Antônio Gonçalves Ferreira" => vec!["Ferreira", "Antônio Gonçalves"],
+            "Gremio Militar da Guarda Nacional" => vec!["Grêmio Militar da Guarda Nacional"],
+            "Gremio Jaboatonense “Seis de Março”"
+            | "Grêmio Jaboatanense “Seis de Março’" => vec!["Grêmio Jaboatonense “Seis de Março”"],
+            "Gremio Literario da Parahyba , Alagoas" => vec!["Grêmio Literário da Paraíba, Alagoas"],
+            "Gremio Litterario 3 de maio" => vec!["Grêmio Literário 3 de Maio"],
+            "Gremio Litterario Augusto Severo"
+            | "Gremmio Litterario Augusto Severo" => vec!["Grêmio Literário Augusto Severo"],
+            "Gremio litterario Barbosa de Freitas" => vec!["Grêmio Literário Barbosa de Freitas"],
+            "Gremio Litterario Mocidade Catholica" => vec!["Grêmio Literário Mocidade Católica"],
+            "Gremio Litterario “Le Monde Marche”" => vec!["Gremio Litterario “Le Monde Marche”"],
+            "Grêmio Tobias Barretto" => vec!["Grêmio Tobias Barretto"],
+            "Guedes Alcoforado" => vec!["Guedes Alcoforado"],
+            "H. Ramos" => vec!["Ramos", "H."],
+            "Harb Theodor Walecchers" => vec!["Walecchers", "Harb Theodor"],
+            "Heliodoro Barros" => vec!["Barros", "Heliodoro"],
+            "Heraclides Camara" => vec!["Camara", "Heraclides"],
+            "Herculano de Freitas" => vec!["Freitas", "Herculano de"],
+            "Humberto de Campos" => vec!["Campos", "Humberto de"],
+            
 
             "Sócio Arthur Lisboa" => vec!["Lisboa", "Arthur"],
             "Sócio Carvalho e Souza" | "Carvalho e Souza" => vec!["Carvalho e Souza"],
@@ -275,7 +313,8 @@ impl<'a> Display for Index<'a> {
             "Sócio Ezequiel Medeiros" => vec!["Medeiros", "Ezequiel"],
             "Sócio Honorário Dr. Manoel Pereira Reis" => vec!["Reis", "Manoel Pereira"],
             "Sócio Honório Carilho"
-            | "Sócio Honório Carrilho" => vec!["Carrilho", "Honório"],
+            | "Sócio Honório Carrilho"
+            | "Honorio Carrilho" => vec!["Carrilho", "Honório"],
             "Sócio Joaquim Lourival"
             | "Sócio Lourival" => vec!["Lourival", "Joaquim"],
             "Sócio Joaquim Manuel" => vec!["Manuel", "Joaquim"],
