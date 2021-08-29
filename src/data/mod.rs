@@ -80,7 +80,7 @@ impl Row {
         } else if key.starts_with("título") || key.starts_with("titulo") {
             set_field_internal(&mut self.title, key, value.replace("$", r"\$"))
         } else if key.starts_with("quem") {
-            set_field_internal(&mut self.doner, key, value)
+            set_field_internal(&mut self.doner, key, value.replace("°", "º"))
         } else if key.starts_with("qual") {
             set_field_internal(&mut self.time, key, value)
         } else if !key.is_empty() || !value.is_empty() {
