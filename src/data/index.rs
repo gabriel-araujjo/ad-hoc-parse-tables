@@ -88,7 +88,9 @@ impl<'a> Display for Index<'a> {
             "Arquivo público nacional"
             | "Archivo Público Nacional"
             | "Director do do Archivo Publico Dr. Vicente Vianna"
-            | "Director do Archivo Publico Nacional" => vec!["Arquivo Público Nacional"],
+            | "Director do Archivo Publico Nacional"
+            | "Directoria do Archivo Publico Nacional"
+            | "Diretor do Arquivo Público Nacional" => vec!["Arquivo Público Nacional"],
             "Associação Commercial do Maranhão" => vec!["Associação Comercial do Maranhão"],
             "Augusto Meira" => vec!["Meira", "Augusto"],
             "Augusto Tavares de Lyra e Alberto Maranhão" => {
@@ -107,9 +109,11 @@ impl<'a> Display for Index<'a> {
             | "Bibliotheca e Archivo do Pará"
             | "Bibliotheca e Archivo Publico do Pará"
             | "Director da Bibliotheca e Archivo Publico de Pará"
+            | "Diretoria do Arquivo Público do Pará"
             => vec!["Pará", "Biblioteca e Arquivo Público do Pará"],
             "Bibliotheca Nacional do Rio de Janeiro"
-            | "Director da Bibliotheca Nacional" => vec!["Biblioteca Nacional"],
+            | "Director da Bibliotheca Nacional"
+            | "Diretor da Biblioteca Nacional" => vec!["Biblioteca Nacional"],
             "Bibliotheca Publica de Pernambuco" => vec!["Biblioteca Pública de Pernambuco"],
             "Bibliotheca Publica de Sergipe" => vec!["Biblioteca Pública de Sergipe"],
             "Bibliotheca Publica Pelotense" => vec!["Biblioteca Pública Pelotense"],
@@ -121,8 +125,8 @@ impl<'a> Display for Index<'a> {
             },
             "Bispo do Piauhy" => vec!["Bispo do Piauí"],
             "Camara episcopal" => vec!["Camara Episcopal"],
-            "Camillo Castello Branco" => vec!["Castello Branco", "Camillo"],
-            "Camillo Catello Branco" => vec!["Castello Branco", "Camillo"],
+            "Camillo Castello Branco"
+            | "Camillo Catello Branco" => vec!["Castello Branco", "Camillo"],
             "Capitão Luis Eugenio Ferreira Veiga" => vec!["Veiga", "Luis Eugenio Ferreira"],
             "Carlos Weber" => vec!["Weber", "Carlos"],
             "Centro Academico 11 de Agosto"
@@ -164,12 +168,89 @@ impl<'a> Display for Index<'a> {
             "Delegacia Fiscal do Thesouro Federal" => vec!["Delegacia Fiscal", "do Thesouro Federal"],
             "Delegacia Fiscal do Thesouro Nacional de São Paulo" => vec!["Delegacia Fiscal", "do Thesouro Nacional de São Paulo"],
             "Dionysio Filgueira" => vec!["Filgueira", "Dionysio"],
-            
-
+            "Directoria da Agricultura, Commercio e Obras Publicas de S. Paulo" => vec!["Directoria da Agricultura, Comércio e Obras Públicas de S. Paulo"],
+            "Directoria da Instrucção Publica do Uruguay" => vec!["Uruguay", "Diretoria da Instrução Pública do"],
+            "Directoria do Archivo Publico Mineiro" => vec!["Arquivo Público Mineiro"],
+            "Directoria do Club Carlos Gomes" => vec!["Club Carlos Gomes"],
+            "Directoria do Museu Goeldi"
+            | "Directoria do Museu Goeldi do Pará"
+            | "Diretor do respectivo Museu, Dr. E. A. Goeldi" => vec!["Museu Goeldi"],
+            "Directoria do Serviço Sanitario de Belem" => vec!["Serviço Sanitário", "de Belém"],
+            "Directoria do Serviço Sanitario do Pará"
+            | "Directoria do serviço sanitario do Pará"
+            | "Directoria do Serviço Sanitário do Pará" => vec!["Serviço Sanitário", "do Pará"],
+            "Directoria Instrucção Publica de São Paulo" => vec!["São Paulo", "Diretoria Geral da Instrução Pública de"],
+            "Directoria Geral de Estatistica"
+            | "Directoria geral de Estatistica"
+            | "Directoria Geral de Estatística" => vec!["Diretoria Geral de Estatística"],
+            "Diretoria Geral de Estatística do Rio de Janeiro" => vec!["Diretoria Geral de Estatística", "do Rio de Janeiro"],
+            "Diretoria da Indústria e Comércio" => vec!["Diretoria da Indústria e Comércio"],
+            "Diretoria da Previdente Natalense" => vec!["Diretoria da Previdente Natalense"],
+            "Diretoria do Grêmio Rio-grandense do Norte" => vec!["Grêmio Rio-Grandense do Norte"],
+            "Diretoria Geral dos Correios" => vec!["Correios"],
+            "Diário oficial" => vec!["Diário Oficial"],
+            "Do cidadão Fortunato Aranha" => vec!["Aranha", "Fortunato"],
+            "Documento escolar" => vec!["Documento", "Escolar"],
+            "Documento religioso" => vec!["Documento", "Religioso"],
+            "Domingos Barros" => vec!["Barros", "Domingos"],
+            "Dr. Felisbello Freire" => vec!["Freire", "Felisbello"],
+            "Dr. Candido Duarte" => vec!["Duarte", "Candido"],
+            "Dr. Costa Filho"
+            | "Dr. Costa Filho," => vec!["Costa Filho"],
+            "Dr. Ernesto Maranhão" => vec!["Maranhão", "Ernesto"],
+            "Dr. Galdino Lima" => vec!["Lima", "Galdino"],
+            "Dr. Goeldi" => vec!["Goeldi", "Émil August"],
+            "Museu Paulista" => vec!["Museu Paulista"],
+            "Dr. H. von Ihering, diretor do Museu Paulista." => {
+                Display::fmt(&Index::from("Museu Paulista"), f)?;
+                Display::fmt(&Index::from("H. von Jhering"), f)?;
+                return Ok(())
+            },
+            "Dr. H. von Jhering" => vec!["Von Ihering", "Hermann"],
+            "Dr. Henrique Guedes de Mello" => vec!["Mello", "Henrique Guedes de"],
+            "Dr. J. C. Branner" => vec!["Branner", "J. C."],
+            "Dr. J. C. Carneiro Monteiro" => vec!["Monteiro", "J. C. Carneiro"],
+            "Dr. J. Castello Branco" => vec!["Castello Branco", "J."],
+            "Dr. Joaquim Carlos Travassos" => vec!["Travassos", "Joaquim Carlos"],
+            "Dr. José Augusto B. de Medeiros"
+            | "Dr. José Augusto Bezerra de Medeiros" => vec!["Medeiros", "José Augusto Bezerra de"],
+            "Dr. José Zeferino da Cunha" => vec!["Cunha", "José Zeferino da"],
+            "Dr. João Gualberto Machado Tinôco" => vec!["Tinôco", "João Gualberto Machado"],
+            "Dr. João N. de Moura Soares"
+            | "Dr. João Nepomuceno de Moura Soares" => vec!["Soares", "João Nepomuceno de Moura"],
+            "Dr. Juvenal Antunes de Oliveira" => vec!["Oliveira", "Juvenal Antunes de"],
+            "Dr. Manoel B. P. Diegues Junior" => vec!["Diegues Junior", "Manoel B. P."],
+            "Dr. Mario Lyra" => vec!["Lyra", "Mario"],
+            "Dr. Piquet Carneiro" => vec!["Piquet Carneiro"],
+            "Dr. Raymundo Pereira da Silva" => vec!["Silva", "Raymundo Pereira da"],
+            "Inspectoria de Obras contra a secca" => vec!["Inspetoria de Obras Contra a Seca"],
+            "Dr. R. Pereira da Silva, da Inspectoria de Obras contra a secca" => {
+                Display::fmt(&Index::from("Dr. Raymundo Pereira da Silva"), f)?;
+                Display::fmt(&Index::from("Inspectoria de Obras contra a secca"), f)?;
+                return Ok(())
+            }
+            "Dr. Sebastião Paraná" => vec!["Paraná", "Sebastião"],
+            "Dr.José Augusto Bezerra Guerra" => vec!["Guerra", "José Augusto Bezerra"],
+            "Dr.João Baptista de Farias e Souza" => vec!["Farias e Souza", "João Baptista de"],
+            "Empreza Editora de São Paulo" => vec!["Empresa Editora de São Paulo"],
+            "Emygdio Moraes de Maranhão" => vec!["Maranhão", "Emygdio Moraes de"],
+            "Escola Universitaria Livre de Manaus" => vec!["Escola Universitaria Livre de Manaus"],
+            "Exma. Senhorita Carlota Lemos" => vec!["Lemos", "Carlota"],
+            "Exma. Sra. D. Ignez Maranhão"
+            | "Exma. sra. D. Ignez Maranhão," => vec!["Maranhão", "Ignez"],
+            "Eça de Ôueiroz" => vec!["Queiroz", "Eça de"],
+            "Ramalho Ortigão" => vec!["Ortigão", "Ramalho"],
+            "Eça de Ôueiroz e Ramalho Ortigão" => {
+                Display::fmt(&Index::from("Eça de Ôueiroz"), f)?;
+                Display::fmt(&Index::from("Ramalho Ortigão"), f)?;
+                return Ok(())
+            }
 
             "Sócio Arthur Lisboa" => vec!["Lisboa", "Arthur"],
             "Sócio Carvalho e Souza" | "Carvalho e Souza" => vec!["Carvalho e Souza"],
-            "Sócio Correspondente Dr. Sebastião de Vasconcellos Galvão" | "Sócio correspondente Sebastião de Vasconcellos Galvão" => vec!["Galvão", "Sebastião de Vasconcellos"],
+            "Sócio Correspondente Dr. Sebastião de Vasconcellos Galvão"
+            | "Sócio correspondente Sebastião de Vasconcellos Galvão"
+            | "Dr.Sebastião de Vasconcellos Galvão" => vec!["Galvão", "Sebastião de Vasconcellos"],
             "Sócio correspondente Irineu Ferreira Pinto"
             | "Sócio Irineu Ferreira Pinto" => vec!["Pinto", "Irineu Ferreira"],
             "Sócio Correspondente João de Lyra Tavares"
@@ -181,14 +262,16 @@ impl<'a> Display for Index<'a> {
             "Sócio do IAGP, Pereira da Costa" => vec!["Pereira da Costa"],
             "Sócio Dr. Eloy de Souza"
             | "Sócio Eloy de Souza"
-            | "Eloy de Souza" => vec!["Souza", "Eloy de"],
+            | "Eloy de Souza"
+            | "Eloy de Sousa" => vec!["Souza", "Eloy de"],
             "Sócio dr. José Correia" => vec!["Correia", "José"],
             "Sócio Dr. Meira e Sá" | "Sócio Meira e Sá" => vec!["Meira e Sá"],
             "Desembargador Francisco S. Meira e Sá" => vec!["Meira e Sá", "Francisco S."],
             "Sócio Dr. Vicente de Lemos"
             | "Sócio Vicente de Lemos"
             | "Vicente Lemos"
-            | "Vicente de Lemos" => vec!["Lemos", "Vicente de"],
+            | "Vicente de Lemos"
+            | "Dr. Lemos" => vec!["Lemos", "Vicente de"],
             "Sócio Ezequiel Medeiros" => vec!["Medeiros", "Ezequiel"],
             "Sócio Honorário Dr. Manoel Pereira Reis" => vec!["Reis", "Manoel Pereira"],
             "Sócio Honório Carilho"
