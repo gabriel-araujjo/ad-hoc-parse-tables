@@ -30,7 +30,9 @@ impl<'a> Display for Index<'a> {
         }
 
         let s = match self.0 {
-            "1º secretário do IAGP" => vec!["IAGP"],
+            "1º secretário do IAGP"
+            | "Instituto Archeologico e Geographico Pernambucano"
+            | "Instituto Arqueológico e Geográfico de Pernambuco" => vec!["Instituto Arqueológico e Geográfico Pernambucano"],
             "Ribeiro da Silva" => vec!["Silva", "Ribeiro da"],
             "1º Secretário da Biblioteca Pública Pelotense" => vec!["Biblioteca Pública Pelotense"],
             "1º Tenente João Augusto Cezar da Silva" => vec!["Silva", "João Augusto Cezar da"],
@@ -51,7 +53,8 @@ impl<'a> Display for Index<'a> {
             | "Da redação da revista"
             | "Da redação do jornal"
             | "Governador do Estado"
-            | "Governo do Estado" => return Ok(()),
+            | "Governo do Estado"
+            | "IHGRN comprou" => return Ok(()),
             "A. J. Raposo da Camara" => vec!["Camara", "A. J. Raposo da"],
             "A. Tavares de Lyra"
             | "Sócio A. Tavares de Lyra" 
@@ -232,10 +235,10 @@ impl<'a> Display for Index<'a> {
             "Dr. Mario Lyra" => vec!["Lyra", "Mario"],
             "Dr. Piquet Carneiro" => vec!["Piquet Carneiro"],
             "Dr. Raymundo Pereira da Silva" => vec!["Silva", "Raymundo Pereira da"],
-            "Inspectoria de Obras contra a secca" => vec!["Inspetoria de Obras Contra a Seca"],
+            "Inspectoria de Obras Contra as Seccas" => vec!["Inspetoria de Obras contra as Secas"],
             "Dr. R. Pereira da Silva, da Inspectoria de Obras contra a secca" => {
                 Display::fmt(&Index::from("Dr. Raymundo Pereira da Silva"), f)?;
-                Display::fmt(&Index::from("Inspectoria de Obras contra a secca"), f)?;
+                Display::fmt(&Index::from("Inspectoria de Obras Contra as Seccas"), f)?;
                 return Ok(())
             }
             "Dr. Sebastião Paraná" => vec!["Paraná", "Sebastião"],
@@ -282,7 +285,26 @@ impl<'a> Display for Index<'a> {
             "Heraclides Camara" => vec!["Camara", "Heraclides"],
             "Herculano de Freitas" => vec!["Freitas", "Herculano de"],
             "Humberto de Campos" => vec!["Campos", "Humberto de"],
+            "IHGB"
+            | "Instituto Historico Brazileiro"
+            | "Instituto Histórico e Geográfico Brasileiro" => vec!["Instituto Histórico Geográfico Brasileiro"],
+            "IHGBA"
+            | "Instituto Geographico e Historico da Bahia"
+            | "Instituto Historico da Bahia"
+            | "Instituto Histórico e Geográfico da Bahia" => vec!["Instituto Geográfico e Histórico da Bahia"],
+            "Instituto de Humanidades do Ceará"
+            | "Instituto do Ceará"
+            | "Instituto Histórico do Ceará" => vec!["Instituto do Ceará"],
+            "Instituto Histórico e Geographico da Parahyba" => vec!["Instituto Histórico e Geográfico da Paraíba"],
+            "Instituto Histórico e Geográfico Alagoano" => vec!["Instituto Histórico e Geográfico Alagoano"],
+            "Instituto Histórico e Geográfico de São Paulo" => vec!["Instituto Histórico e Geográfico de São Paulo"],
+            "Instituto Litterario Mocidade Catholica de Mossoró" => vec!["Instituto Literário Mocidade Católica de Mossoró"],
+            "Intendencia Municipal de Maceió" => vec!["Maceió", "Intendencia Municipal de"],
+            "Irineu de Albuquerque" => vec!["Albuquerque", "Irineu de"],
+            "Izabel Gondim" => vec!["Gondim", "Izabel"],
             
+            
+
 
             "Sócio Arthur Lisboa" => vec!["Lisboa", "Arthur"],
             "Sócio Carvalho e Souza" | "Carvalho e Souza" => vec!["Carvalho e Souza"],
@@ -290,7 +312,8 @@ impl<'a> Display for Index<'a> {
             | "Sócio correspondente Sebastião de Vasconcellos Galvão"
             | "Dr.Sebastião de Vasconcellos Galvão" => vec!["Galvão", "Sebastião de Vasconcellos"],
             "Sócio correspondente Irineu Ferreira Pinto"
-            | "Sócio Irineu Ferreira Pinto" => vec!["Pinto", "Irineu Ferreira"],
+            | "Sócio Irineu Ferreira Pinto"
+            | "Irineu Ferreira Pinto" => vec!["Pinto", "Irineu Ferreira"],
             "Sócio Correspondente João de Lyra Tavares"
             | "Sócio correspondente João de Lyra Tavares"
             | "Cel. João de Lyra Tavares"
