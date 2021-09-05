@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{fmt::Display, vec};
 
 pub struct Index<'a>(&'a str);
 
@@ -54,7 +54,8 @@ impl<'a> Display for Index<'a> {
             | "Da redação do jornal"
             | "Governador do Estado"
             | "Governo do Estado"
-            | "IHGRN comprou" => return Ok(()),
+            | "IHGRN comprou"
+            | "Journal universel hebdomadaire" => return Ok(()),
             "A. J. Raposo da Camara" => vec!["Camara", "A. J. Raposo da"],
             "A. Tavares de Lyra"
             | "Sócio A. Tavares de Lyra" 
@@ -124,7 +125,6 @@ impl<'a> Display for Index<'a> {
             "Bibliotheca Publica de Pernambuco" => vec!["Biblioteca Pública de Pernambuco"],
             "Bibliotheca Publica de Sergipe" => vec!["Biblioteca Pública de Sergipe"],
             "Bibliotheca Publica Pelotense" => vec!["Biblioteca Pública Pelotense"],
-            // "Bibliotheca da Faculdade de Direito do Recife" => "Biblioteca da Faculdade de Direito do Recife",
             "Bilac Guimarães Passos e Bandeira Junior" => {
                 Display::fmt(&Index::from("Bilac Guimarães Passos"), f)?;
                 Display::fmt(&Index::from("Bandeira Junior"), f)?;
@@ -225,11 +225,14 @@ impl<'a> Display for Index<'a> {
             "Dr. J. Castello Branco" => vec!["Castello Branco", "J."],
             "Dr. Joaquim Carlos Travassos" => vec!["Travassos", "Joaquim Carlos"],
             "Dr. José Augusto B. de Medeiros"
-            | "Dr. José Augusto Bezerra de Medeiros" => vec!["Medeiros", "José Augusto Bezerra de"],
+            | "Dr. José Augusto Bezerra de Medeiros"
+            | "José Augusto B. de Medeiros"
+            | "José Augusto Bezerra de Medeiros" => vec!["Medeiros", "José Augusto Bezerra de"],
             "Dr. José Zeferino da Cunha" => vec!["Cunha", "José Zeferino da"],
             "Dr. João Gualberto Machado Tinôco" => vec!["Tinôco", "João Gualberto Machado"],
             "Dr. João N. de Moura Soares"
-            | "Dr. João Nepomuceno de Moura Soares" => vec!["Soares", "João Nepomuceno de Moura"],
+            | "Dr. João Nepomuceno de Moura Soares"
+            | "João Nepomuceno de Moura Soares" => vec!["Soares", "João Nepomuceno de Moura"],
             "Dr. Juvenal Antunes de Oliveira" => vec!["Oliveira", "Juvenal Antunes de"],
             "Dr. Manoel B. P. Diegues Junior" => vec!["Diegues Junior", "Manoel B. P."],
             "Dr. Mario Lyra" => vec!["Lyra", "Mario"],
@@ -302,8 +305,36 @@ impl<'a> Display for Index<'a> {
             "Intendencia Municipal de Maceió" => vec!["Maceió", "Intendencia Municipal de"],
             "Irineu de Albuquerque" => vec!["Albuquerque", "Irineu de"],
             "Izabel Gondim" => vec!["Gondim", "Izabel"],
-            
-            
+            "J. Augusto de Castro" => vec!["Castro", "J. Augusto de"],
+            "J. Guerra-Rio" => vec!["Guerra-Rio", "J."],
+            "J. P. Oliveira Martins" => vec!["Martins", "J. P. Oliveira"],
+            "Joronymo Cabral Raposo da Camara" => vec!["Camara", "Joronymo Cabral Raposo da"],
+            "Jeronymo Goeiros" => vec!["Goeiros", "Jeronymo"],
+            "Joao Brigido dos Santos" => vec!["Santos", "João Brigido"],
+            "Joaquim da Costa Nogueira" => vec!["Nogueira", "Joaquim da Costa"],
+            "Joaquim Pinheiro" => vec!["Pinheiro", "Joaquim"],
+            "Jose Villar" 
+            | "José Villar" => vec!["Villar", "José"],
+            "José Camara Lisboa" => vec!["Lisboa", "José Camara"],
+            "José de Campos Novaes" => vec!["Novaes", "José de Campos"],
+            "José Martins de Vasconcellos" => vec!["Vasconcellos", "José Martins de"],
+            "José Salustiano Correia de Medeiros" => vec!["Medeiros", "José Salustiano Correia de"],
+            "João F. da Frota e Vasconcellos [Bibliothecario da Faculdade de Direito do Recife]" => {
+                Display::fmt(&Index::from("João F. da Frota e Vasconcellos"), f)?;
+                Display::fmt(&Index::from("Bibliotheca da Faculdade de Direito do Recife"), f)?;
+                return Ok(())
+            }
+            "João F. da Frota e Vasconcellos" => vec!["Vasconcellos", "João F. da Frota e"],
+            "João Gualberto"
+            | "João Gualberto Machado Tinoco" => vec!["Tinoco", "João Gualberto Machado"],
+            "João Irineu Jóffely" => vec!["Jóffely", "João Irineu"],
+            "João Nepomuceno Seabra de Mello" => vec!["Mello", "João Nepomuceno Seabra de"],
+            "Julio Maria" => vec!["Julio Maria"],
+            "Liga de Ensino" => vec!["Liga de Ensino"],
+            "Loja maçônica 21 de Março" => vec!["Loja Maçônica", "21 de Março"],
+            "Loja Maçônica Filhos da Fé" => vec!["Loja Maçônica", "Filhos da Fé"],
+            "Luiz Antonio Fernandes Pimenta" => vec!["Pimenta", "Luiz Antonio Fernandes"],
+            ""
 
 
             "Sócio Arthur Lisboa" => vec!["Lisboa", "Arthur"],
@@ -317,7 +348,8 @@ impl<'a> Display for Index<'a> {
             "Sócio Correspondente João de Lyra Tavares"
             | "Sócio correspondente João de Lyra Tavares"
             | "Cel. João de Lyra Tavares"
-            | "Coronel João de Lyra Tavares" => vec!["Tavares", "João de Lyra"],
+            | "Coronel João de Lyra Tavares"
+            | "João Lyra Tavares" => vec!["Tavares", "João de Lyra"],
             "Sócio Correspondente Manuel Praxedes"
             | "Correspondente Manuel Prexades" => vec!["Praxedes", "Manuel"],
             "Sócio do IAGP, Pereira da Costa" => vec!["Pereira da Costa"],
@@ -342,7 +374,8 @@ impl<'a> Display for Index<'a> {
             | "Sócio Lourival" => vec!["Lourival", "Joaquim"],
             "Sócio Joaquim Manuel" => vec!["Manuel", "Joaquim"],
             "Sócio Lins Caldas" => vec!["Caldas", "Lins"],
-            "Sócio Luiz Fernandes" => vec!["Fernandes", "Luiz"],
+            "Sócio Luiz Fernandes"
+            | "Luiz Fernandes" => vec!["Fernandes", "Luiz"],
             "Sócio Manuel Hemeterio" => vec!["Hemeterio", "Manuel"],
             "Sócio Monsenhor José Paulino de Andrada" => vec!["Andrada", "José Paulino de"],
             "Sócio Olympio Vital" | "Sócio Olímpio Vital" | "Olympio Vital" | "Olímpio Vital" => vec!["Vital", "Olympio"],
