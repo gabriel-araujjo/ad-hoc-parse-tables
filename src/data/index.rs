@@ -121,7 +121,8 @@ impl<'a> Display for Index<'a> {
             => vec!["Pará", "Biblioteca e Arquivo Público do Pará"],
             "Bibliotheca Nacional do Rio de Janeiro"
             | "Director da Bibliotheca Nacional"
-            | "Diretor da Biblioteca Nacional" => vec!["Biblioteca Nacional"],
+            | "Diretor da Biblioteca Nacional"
+            | "Biblioteca Nacional" => vec!["Biblioteca Nacional"],
             "Bibliotheca Publica de Pernambuco" => vec!["Biblioteca Pública de Pernambuco"],
             "Bibliotheca Publica de Sergipe" => vec!["Biblioteca Pública de Sergipe"],
             "Bibliotheca Publica Pelotense" => vec!["Biblioteca Pública Pelotense"],
@@ -183,7 +184,8 @@ impl<'a> Display for Index<'a> {
             "Directoria do Club Carlos Gomes" => vec!["Club Carlos Gomes"],
             "Directoria do Museu Goeldi"
             | "Directoria do Museu Goeldi do Pará"
-            | "Diretor do respectivo Museu, Dr. E. A. Goeldi" => vec!["Museu Goeldi"],
+            | "Diretor do respectivo Museu, Dr. E. A. Goeldi"
+            | "Museu Goeldi" => vec!["Museu Goeldi"],
             "Directoria do Serviço Sanitario de Belem" => vec!["Serviço Sanitário", "de Belém"],
             "Directoria do Serviço Sanitario do Pará"
             | "Directoria do serviço sanitario do Pará"
@@ -334,8 +336,39 @@ impl<'a> Display for Index<'a> {
             "Loja maçônica 21 de Março" => vec!["Loja Maçônica", "21 de Março"],
             "Loja Maçônica Filhos da Fé" => vec!["Loja Maçônica", "Filhos da Fé"],
             "Luiz Antonio Fernandes Pimenta" => vec!["Pimenta", "Luiz Antonio Fernandes"],
-            ""
-
+            "M. E. Gomes de Carvalho" => vec!["Carvalho", "M. E. Gomes de"],
+            "Major Codeceira"
+            | "Major José Domingues Codeceira" => vec!["Codeceira", "José Domingues"],
+            "Major Joaquim Soares" => vec!["Soares", "Joaquim"],
+            "Major Pedro Dias de Campos" => vec!["Campos", "Pedro Dias de"],
+            "Major Theodosio Paiva" => vec!["Paiva", "Theodosio"],
+            "Manoel Barata" => vec!["Barata", "Manoel"],
+            "Manoel Francisco da Trindade" => vec!["Trindade", "Manoel Francisco da"],
+            "Manuel Cícero Peregrino da Silva" => vec!["Silva", "Manuel Cícero Peregrino da"],
+            "Manuel Cícero Peregrino da Silva, diretor da Biblioteca Nacional" => {
+                Display::fmt(&Index::from("Manuel Cícero Peregrino da Silva"), f)?;
+                Display::fmt(&Index::from("Biblioteca Nacional"), f)?;
+                return Ok(())
+            }
+            "Marechal Francisco de Paula Argollo" => vec!["Argollo", "Francisco de Paula"],
+            "Maria Amélia Vaz de Carvalho" => vec!["Carvalho", "Maria Amélia Vaz de"],
+            "Maria Suzana de Moura Salles" => vec!["Salles", "Maria Suzana de Moura"],
+            "Maria Suzana de Moura Salles e o sócio Pinto de Abreu" => {
+                Display::fmt(&Index::from("Maria Suzana de Moura Salles"), f)?;
+                Display::fmt(&Index::from("Pinto de Abreu"), f)?;
+                return Ok(())
+            }
+            "Mario Barros" => vec!["Barros", "Mario"],
+            "Mario de Britto Barros" => vec!["Barros", "Mario de Britto"],
+            "Militão Bivar" => vec!["Bivar Militão"],
+            "Ministerio da Viação e Obras Publicas" => vec!["Ministerio da Viação e Obras Publicas"],
+            "Ministro da Fazenda, dr. Leopoldo de Bulhões" => vec!["Bulhões", "Leopoldo de"],
+            "Ministro da Industria, Viação e Oras Públicas, Lauro Severiano Muller" => vec!["Muller", "Lauro Severiano"],
+            "Ministro da Justiça e Negocios Interiores, J. J. Seabra" => vec!["Seabra", "J. J."],
+            "Ministro da marinha, vice-almirante Julio Cesar De Noronha" => vec!["Noronha", "Julio Cesar de"],
+            "Monsenhor Sebastião Kneipp" => vec!["Kneipp", "Sebastião"],
+            "Moyses Soares de Araujo"
+            | "Moyses Soares de Araújo" => vec!["Araújo", "Moyses Soares de"],
 
             "Sócio Arthur Lisboa" => vec!["Lisboa", "Arthur"],
             "Sócio Carvalho e Souza" | "Carvalho e Souza" => vec!["Carvalho e Souza"],
@@ -358,7 +391,7 @@ impl<'a> Display for Index<'a> {
             | "Eloy de Souza"
             | "Eloy de Sousa" => vec!["Souza", "Eloy de"],
             "Sócio dr. José Correia" => vec!["Correia", "José"],
-            "Sócio Dr. Meira e Sá" | "Sócio Meira e Sá" => vec!["Meira e Sá"],
+            "Sócio Dr. Meira e Sá" | "Sócio Meira e Sá" | "Meira e Sá" => vec!["Meira e Sá"],
             "Desembargador Francisco S. Meira e Sá" => vec!["Meira e Sá", "Francisco S."],
             "Sócio Dr. Vicente de Lemos"
             | "Sócio Vicente de Lemos"
@@ -377,7 +410,8 @@ impl<'a> Display for Index<'a> {
             "Sócio Luiz Fernandes"
             | "Luiz Fernandes" => vec!["Fernandes", "Luiz"],
             "Sócio Manuel Hemeterio" => vec!["Hemeterio", "Manuel"],
-            "Sócio Monsenhor José Paulino de Andrada" => vec!["Andrada", "José Paulino de"],
+            "Sócio Monsenhor José Paulino de Andrada"
+            | "Monsenhor José Paulino de Andrada" => vec!["Andrada", "José Paulino de"],
             "Sócio Olympio Vital" | "Sócio Olímpio Vital" | "Olympio Vital" | "Olímpio Vital" => vec!["Vital", "Olympio"],
             "Sócio Pedro Soares" => vec!["Soares", "Pedro"],
             "Sócio Pedro Velho" => vec!["Velho", "Pedro"],
